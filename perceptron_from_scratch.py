@@ -58,9 +58,11 @@ class Perceptron:
             errors = 0
             for xi, target in zip(X, y):
                 update = self.eta * (target - self.predict(xi))
-                self.w_ += update * xi
-                self.b_ += update
-                errors += int(update != 0.0)
+                self.w_ += update * xi  # weigth update
+                self.b_ += update  # bias update
+                errors += int(
+                    update != 0.0
+                )  # counting the number of time update is not 0
             self.errors_.append(errors)
 
         return self
